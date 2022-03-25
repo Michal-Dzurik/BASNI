@@ -1,0 +1,1490 @@
+$fontForPoet : 'Dancing Script', cursive;;
+$fontForWeb : 'Source Sans Pro', sans-serif;
+$textFontSize : 18px;
+$mainColor: #0f4683;
+$footerColor: #2A2A2A;
+
+// Prefixes and all important settings
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $fontForWeb;
+}
+
+.clearfix:after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  position: relative;
+  min-height: 100vh;
+}
+
+// Components in common
+
+
+    // Navigation
+nav{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $mainColor;
+  z-index: 9999;
+
+  ul{
+    list-style: none;
+    min-width:50% ;
+
+    li{
+      // all links in navigation
+      a{
+        padding: 13px 10px;
+        font-size: 19px;
+        line-height: 100%;
+      }
+    }
+  }
+}
+
+.left-navigation{
+  float: left;
+
+  li{
+    float: left;
+  }
+}
+
+.right-navigation{
+  float: right;
+
+  li{
+    float: right;
+  }
+}
+
+#logo{
+  position: relative;
+  padding-right: 15px;
+  padding-left: 5px;
+
+  a{
+    font-weight: bold;
+    font-size: 21px;
+    padding: 12px 10px;
+
+    span{
+      font-family: Arial;
+    }
+  }
+}
+
+a{
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  font-weight: 300;
+}
+
+#logo:after{
+  content: '';
+  height: 50%;
+  width: 1px;
+  top: 25%;
+  position: absolute;
+  left: 95%;
+  background: #ffffffd5;
+}
+
+.add-button{
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background: white;
+  margin: 5px 10px;
+  position: relative;
+  transition: transform .5s ease-out;
+
+  a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: $mainColor;
+    font-weight: 700;
+    font-size: 21px;
+    padding: 7px;
+
+  }
+}
+
+.add-button:hover{
+  transform: rotate(180deg);
+}
+
+#sign-in{
+  background: white;
+  margin: 7px 5px;
+  border-radius: 10px;
+
+  a{
+    color: $mainColor;
+    padding: 6px 12px;
+    font-weight: 400;
+  }
+
+}
+
+.nav-after{
+  height: 44.8px;
+}
+
+.mobile-navigation{
+  display: none;
+  max-height: 0;
+  transition: max-height .4s;
+  overflow: hidden;
+
+  li{
+    float: none;
+    text-align: center;
+
+    a{
+      width: 100%;
+    }
+  }
+}
+
+.hamburger{
+  display: none;
+  height: 34.8px;
+  width: 34.8px;
+  position: absolute;
+  top: 0;
+  right:  0;
+  margin: 5px;
+  padding: 5px;
+  border: 1.5px solid white;
+  background: $mainColor;
+  border-radius: 7px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.hamburger-active{
+  background: white;
+  color: $mainColor;
+}
+
+.navigation-rolled{
+  max-height: 1000px;
+}
+
+.follow{
+  height: 38px;
+}
+
+@media (max-width: 640px){
+  .right-navigation{
+    display: none;
+  }
+
+  .left-navigation{
+    width: 100%;
+    text-align: center;
+
+    li{
+      display: none;
+    }
+
+    #logo{
+      display: inline-block;
+      float: none;
+    }
+
+    #logo:after{
+      display: none;
+    }
+
+  }
+
+  .hamburger{
+    display: block;
+  }
+
+  .mobile-navigation{
+    display: block;
+  }
+  
+}
+
+  // Footer
+footer{
+  background:  $footerColor;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-weight: 300;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  p{
+    position: relative;
+  }
+
+  p:before{
+    content: '© BÁSNI.';
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  p:after{
+    content: 'Autor: Michal Dzurík ';
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.footer-mobile{
+  display: none;
+}
+
+@media (max-width: 580px){
+  .footer-mobile{
+    display: block;
+  }
+  .footer-desktop{
+    display: none;
+  }
+
+  
+}
+
+.footer-after{
+  height: 40px;
+  width: 100%;
+}
+
+    //alert messages
+#message-box{
+  position: fixed;
+  top: 45px;
+  right: 0;
+  height: 100vh;
+  z-index: 999;
+  pointer-events: none;
+
+  .message{
+    pointer-events: none;
+    padding: 10px;
+    margin: 5px;
+    min-width: 320px;
+    position: relative;
+    background: white;
+    color: $mainColor;
+    animation-name: slideFromRight;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+
+
+    div{
+      float: left;
+    }
+
+    img{
+      height: 40px;
+      float: left;
+      margin-right: 10px;
+      transform: scale(.7);
+    }
+  }
+
+  .error{
+    border-left: 4px solid #ff5252;
+
+    div{
+      h4{
+        color: #ff5252;
+      }
+    }
+  }
+
+  .success{
+    border-left: 4px solid #4af84a;
+
+    div{
+      h4{
+        color: #4af84a;
+      }
+    }
+  }
+}
+
+@keyframes slideFromRight {
+  0%{
+    right: -999px;
+  }
+  8%{
+    right: 3%;
+  }
+  10%{
+    right: 0;
+  }
+  91%{
+    right: 0;
+  }
+  92% {
+    right: 3%;
+  }
+  100%{
+    right: -999px;
+  }
+
+}
+
+@media (max-width: 580px) {
+  #message-box{
+    height: 20vh;
+    width: 100%;
+    overflow: hidden;
+
+    .message{
+      max-width: 94%;
+      margin: 3%;
+    }
+  }
+}
+
+// Prologue site
+.banner{
+  height: 70vh;
+  background: url("../images/write-with-blue-pencil.png") ;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+
+  .filter{
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .65;
+  }
+
+  article{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    text-align: center;
+    max-width: 600px;
+
+    h2{
+      font-size: 70px;
+      font-family: $fontForPoet;
+      line-height: 70px;
+    }
+
+    p{
+      font-size: 20px;
+      margin-top: 5px;
+    }
+
+    .link-button{
+      padding: 7px 25px ;
+      border: 3px solid $mainColor;
+      margin-top: 12px;
+      font-size: 20px;
+      font-weight: 500;
+      border-radius: 9px;
+      display: inline-block;
+    }
+  }
+
+}
+
+.functionality{
+  text-align: center;
+  padding: 20px 20px 70px 20px;
+
+  h3{
+    font-size: 50px;
+    text-align: center;
+    padding: 30px;
+    font-weight: 300;
+  }
+
+  .functionality-row{
+    margin:  0 auto;
+    display: inline-block;
+
+    article{
+      width: 260px;
+      padding: 15px;
+      display: inline-block;
+
+      img{
+        height: 104px;
+      }
+
+      h4{
+        font-size: 20px;
+        margin-top: 10px;
+        color: $mainColor;
+      }
+    }
+
+  }
+
+
+}
+
+@media (max-width: 580px) {
+  .banner{
+    height: 50vh;
+    article{
+      min-width: 70%;
+
+      h2{
+        display: none;
+      }
+
+      p{
+        font-size: 46px;
+        font-family: $fontForPoet;
+      }
+    }
+  }
+}
+
+@media (max-height: 595px) {
+  .banner > article{
+    h2{
+      font-size: 40px;
+      line-height: 50px;
+    }
+
+    p{
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+  }
+}
+
+// Registration and login site
+main.background{
+  background: url("../images/registration-picture.jpg");
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+
+main{
+  position: relative;
+
+  form{
+    background: white;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+    text-align: left;
+
+    h2{
+      font-size: 28px;
+      font-weight: 600;
+      color: $mainColor;
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      position: relative;
+
+      span{
+        font-family: Arial;
+      }
+    }
+
+    h2:after{
+      content: '';
+      height: 2px;
+      width: 55%;
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      background: $mainColor;
+    }
+
+    .remember{
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      text-align: center;
+      margin: 15px 0 5px 0;
+      clear: both;
+      position: relative;
+      top: 5px;
+
+      label{
+        position: relative;
+
+        width: 15px;
+        height: 15px;
+
+        input{
+          opacity: 0;
+          height: 100%;
+          width: 15px;
+        }
+
+        .check{
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          border: 1.5px solid $mainColor;
+          z-index: 2;
+
+          span{
+            width: 5px;
+            height: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: white;
+            border-radius: 50%;
+          }
+        }
+
+        .label{
+          margin-left: 10px ;
+        }
+
+        input:checked ~ .check{
+          background: $mainColor;
+        }
+
+      }
+    }
+
+    .block{
+      float: left;
+      width: 46%;
+      margin: 3% 2%;
+
+      input,input:focus{
+        outline: none;
+        border: 1.5px solid $mainColor;
+        font-size: 16px;
+        padding: 6px 10px;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      label{
+        display: inline-block;
+        width: 100%;
+        padding: 0 0 10px 0;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: $mainColor;
+      }
+
+    }
+
+    .login{
+      width: 32%;
+    }
+
+    .age{
+      width: 10%;
+    }
+
+    button{
+      padding: 8px 15px;
+      background: $mainColor;
+      color: white;
+      border-radius: 5px;
+      margin:  20px auto;
+      max-width: 200px;
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+
+      span{
+        font-family: Arial;
+      }
+    }
+
+
+  }
+}
+
+
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media (max-width: 560px) {
+  main{
+    form{
+     width: 95%;
+
+      .block{
+        width:100%;
+        float: none;
+        margin: 3% 0;
+
+
+        label{
+          text-align: left;
+        }
+      }
+    }
+
+
+  }
+
+
+}
+
+//Profile site
+
+.profile-site-background{
+  background-color: #2A2A2A;
+  padding: 70px;
+
+  .overlay{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: url("../images/registration-picture.jpg");
+    margin: -70px 0 0 -70px;
+    background-size: 100%;
+
+    div{
+      background: url("../images/overlay.png");
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+section.main{
+  max-width: 900px;
+  margin: 50px auto 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 100;
+  background: white;
+
+  section{
+    padding: 20px;
+    width: 100%;
+  }
+
+  .profile{
+    a{
+      display: block;
+      .profile-picture{
+        width: 106px;
+        float: left;
+      }
+    }
+
+
+    .about{
+      float: left;
+      max-width: 80%;
+      margin-left: 3%;
+
+      .name{
+        font-size: 28px;
+        text-transform: uppercase;
+        position: relative;
+        line-height: 40px;
+        top: -5px;
+        color: $mainColor;
+      }
+
+      .name:after{
+        content: '.';
+        font-family: Arial;
+      }
+
+      .description{
+        font-size: 18px;
+      }
+
+
+    }
+  }
+}
+
+.poem-gallery{
+  text-align: center;
+
+  h2{
+    font-size: 28px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .poem{
+    width: 250px;
+    border: 1.5px solid $mainColor;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 180px;
+    position: relative;
+    margin: 10px;
+
+      .heading-container{
+        width: 100%;
+        background: $mainColor;
+        height: 60%;
+        position: relative;
+
+        .heading{
+          font-size: 28px;
+          color: white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+
+    a{
+      display: inline-block;
+      padding: 5px 10px;
+      background: $mainColor;
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translate(-50%,50%);
+    }
+  }
+}
+
+.paginator{
+  text-align: center;
+  margin-top: 50px;
+
+  div{
+    display: inline-block;
+    overflow: hidden;
+
+    a{
+      display: inline-block;
+      background: $mainColor;
+      color: white;
+      border-top: 1.5px solid $mainColor;
+      border-bottom: 1.5px solid $mainColor;
+      border-left: .75px solid $mainColor;
+      border-right: .75px solid $mainColor;
+      padding: 10px;
+      font-weight: 600;
+    }
+  }
+
+  .number{
+    a{
+      background: $mainColor;
+      color: white;
+    }
+  }
+
+  .prev{
+    border-radius: 10px 0 0 10px;
+  }
+
+  .next{
+    border-radius:  0 10px 10px 0 ;
+  }
+}
+
+.my-profile{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  padding: 10px;
+  z-index: 50;
+  background: $mainColor;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 38px;
+
+  img{
+    width: 100%;
+  }
+}
+
+.profile-remove{
+  top: 38px;
+}
+
+.profile-not-public{
+  top: 38px;
+  writing-mode: tb-rl;
+}
+
+  // Responsive
+@media (max-width: 860px) {
+
+  .my-profile{
+    left: auto;
+    right: 0;
+  }
+
+  section.main{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 100;
+    background: white;
+
+    section{
+      padding: 20px;
+      width: 100%;
+    }
+
+    .profile{
+      text-align: center;
+
+      a{
+        .profile-picture{
+          width: 106px;
+          float: none;
+          display: inline-block;
+          margin: 20px 0;
+        }
+      }
+
+      .about{
+        float: none;
+        max-width: 100%;
+        margin-left: 0;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .profile-site-background{
+    background-color: #2A2A2A;
+    padding: 70px 10px;
+
+    .overlay{
+      margin: -70px 0 0 -10px;
+
+    }
+  }
+
+}
+
+// Profile edit
+
+.section-heading{
+  font-size: 28px;
+  font-weight: 600;
+  color: $mainColor;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  padding: 15px;
+  padding-left: 0;
+  text-align: left;
+  text-transform: uppercase;
+
+    span {
+      font-family: Arial;
+    }
+}
+
+.section-heading:after {
+  content: '';
+  height: 2px;
+  width: 150px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  background: $mainColor;
+}
+
+.main-profile-edit {
+  max-width: 900px;
+  margin: 20px auto;
+
+  form {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+    padding: 40px;
+    width: 100%;
+
+
+    textarea{
+      font-size: 20px;
+      padding: 15px;
+      width: 100%;
+      resize: none;
+    }
+
+    h3{
+      font-size: 20px;
+      padding: 10px;
+    }
+
+    img{
+      height: 150px;
+      float: left;
+    }
+
+    .file-container{
+      float: left;
+      margin: 0 10px;
+      position: relative;
+      height: 150px;
+      width: 150px;
+      padding: 5px;
+      border: 2px dashed $mainColor;
+
+      input[type="file"]{
+        visibility: hidden;
+      }
+
+      label.label{
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+      }
+
+      label{
+        text-align: center;
+        width: 100% ;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
+
+
+
+    }
+
+    button{
+      position: absolute;
+      right: 40px;
+      bottom: 40px;
+      top: auto;
+      left: auto;
+      transform: none;
+      margin: 0;
+    }
+
+  }
+}
+
+@media (max-width: 750px) {
+  .main-profile-edit{
+    form{
+      button{
+        width: 120px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        float: none;
+        margin-top: 20px;
+        bottom: auto;
+      }
+
+      img{
+        display: none;
+      }
+
+      .file-container{
+        margin: 0 auto;
+        float: none;
+      }
+    }
+  }
+
+}
+
+// poet site
+  .main-poem{
+    text-align: center;
+    font-size: 20px;
+
+    p{
+      white-space: pre;
+    }
+  }
+
+  // Comments
+
+#comments{
+  padding: 0;
+}
+
+.comment{
+  border-radius: 10px;
+  background: $mainColor;
+  color: white;
+  width: 100%;
+  padding: 20px ;
+  text-align: left;
+  margin: 15px 0;
+  display: block;
+
+  h4{
+    a{
+      font-weight: 800;
+      font-size: 18px;
+    }
+  }
+
+  p{
+    font-size: 16px;
+  }
+}
+
+#commenting{
+  width: 100%;
+  padding: 0;
+  margin-top: 40px;
+
+  form{
+    position: static;
+    transform: none;
+    width: 100%;
+    padding: 0;
+
+    textarea{
+      width: 100%;
+      font-size: 18px;
+      padding: 15px;
+      resize: vertical;
+      height: 150px;
+    }
+
+  }
+}
+
+
+// Edit site
+
+header{
+  position: fixed;
+  top: 44.8px;
+  width: 100%;
+  background: white;
+  z-index: 999;
+
+  a{
+    float: right;
+    color: $mainColor;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+
+.background-edit{
+  .overlay{
+    background: url("../images/coffee-2306471_1920.jpg");
+  }
+}
+
+input:focus, input,
+button:focus, button{
+  outline: none;
+  border: none;
+}
+
+#app{
+  width: 100%;
+  min-height: 100vh;
+
+  #message-box{
+    top: 100px;
+  }
+}
+
+#notebook{
+  margin-top: 10vh;
+  background: white;
+  float: left;
+  position: relative;
+  z-index: 50;
+  min-height: 60vh;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 20px;
+  padding: 0;
+  height: 100%;
+
+  form{
+    width: 100%;
+    background: transparent;
+    padding: 30px 40px;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+
+    textarea, textarea:focus{
+      background: transparent;
+      border: none;
+      resize: none;
+      outline: none;
+      min-height: 10% ;
+      font-size: $textFontSize;
+      line-height: 33px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    input{
+      width: 100%;
+    }
+  }
+}
+
+.features{
+  margin-top: 10vh;
+  height: 100%;
+  min-height: 60vh;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 30px 40px;
+  background: white;
+  position: relative;
+  float: right;
+  margin-left: 20px;
+
+  div{
+    h3{
+      color: $mainColor;
+      font-weight: 600;
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+  }
+
+}
+
+#rhyme-form{
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  transform: none;
+
+  input,button{
+    padding: 5px;
+    border:  1.5px solid $mainColor;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  input{
+    padding: 8px 10px;
+  }
+
+  input[type="text"]{
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  label{
+    display: inline-block;
+  }
+
+  input[type="number"]{
+    width: 15%;
+    margin: 20px 10px;
+  }
+
+  button{
+    transform: none;
+    left: 0;
+    padding: 0;
+    width: 40px;
+    margin: 0;
+    float: right;
+    transform: translateY(50%);
+
+    img{
+      width: 60%;
+      margin: 20%;
+      display: block;
+    }
+  }
+}
+
+#rhymes-result{
+  width: 100%;
+  overflow-y: auto;
+
+  .rhymes-result-container{
+    padding: 10px;
+    background: $mainColor;
+    color:white;
+    display: inline-block;
+    border-radius: 8px;
+    margin: 3px 4px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+
+.rhymes-animate{
+  animation-name: rhyme;
+  animation-duration: .6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes rhyme {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+#syllable-handler{
+  position: absolute;
+  top: 0;
+  height: inherit;
+  right: 0;
+  padding-top: inherit;
+  padding-bottom: 0;
+  margin-top: 60px;
+
+
+  .control{
+    background: $mainColor;
+    color: white;
+    display: block;
+    line-height: 33px;
+    padding: 0 7px;
+    font-size: $textFontSize;
+  }
+}
+
+#poem_heading,#poem_heading:focus{
+  outline: none;
+  background: transparent;
+  padding: 10px 0 ;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+#poem_heading::placeholder{
+  color: $mainColor;
+}
+
+#poem_heading{
+  color: $mainColor;
+}
+
+@media (max-width: 1265px) {
+  #app{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .features,#notebook{
+      margin: 40px auto 20px auto;
+      float: none;
+    }
+
+    .features{
+      max-width: 800px;
+
+      div{
+        form{
+          input[type="number"]{
+            width: 50px;
+          }
+        }
+        }
+    }
+
+    #notebook{
+      max-width: 800px;
+
+
+    }
+
+  }
+
+}
+
+@media (max-width: 600px) {
+  #syllable-handler{
+    display: none;
+  }
+}
+
+// search site
+
+.search-main{
+  background: white;
+
+  form{
+    width: 100%;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+
+    input[type="text"]{
+      background: $mainColor;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 7px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"]::placeholder{
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    select,select:focus{
+      outline: none;
+      background: transparent;
+      border: 1.2px solid $mainColor;
+      padding: 5px;
+      font-size: 16px;
+      border-radius: 7px;
+      margin-left: 10px;
+    }
+
+    button{
+      margin: 0;
+      position: relative;
+      transform: none;
+      float: right;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.active-element{
+  background: white !important;
+  color: $mainColor !important;
+}
+
+.news-main > .section-heading{
+  margin-left: 20px;
+}
+
+.post{
+  width: 100%;
+  border: 1.5px solid $mainColor ;
+  margin: 15px 0 ;
+  color: black;
+  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.post .post-author{
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 10px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+
+.post h3{
+  font-size: 20px;
+  padding: 15px 20px;
+  display: inline-block;
+  width: 100%;
+  background: $mainColor;
+  position: relative;
+}
+
+.post h3 > a {
+  color: white;
+
+}
+
+.post a{
+  color: black;
+  font-weight: 800;
+}
+
+.post > p{
+  text-align: center;
+  white-space: pre;
+  padding: 15px 20px;
+}

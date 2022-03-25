@@ -1,0 +1,15 @@
+- Ako má slovo do 4 písmen a na konci sú dve spoluhlásky slovo je jednoslabičné (dvojhlásky sú jedno písmeno)
+- Väčšinou sa slabika kočí na samohlásku , výnimku je to vtedy keď sú za sebou 3 spoluhásky ,
+vtedy je prvá spoluhláska v prvej slabike a ostatné v druhej slabike
+- Ak sa za sebou opakuje spoluhláska a samohláska ako naprikld koko tak taždy tento celok "ko" je slabika
+- ak za spoluhlaska samohlaska stojí sama spoluhlaska tak sa pričlenuje do slabiky predchadzajucej "KO|LO|TOČ"
+- ak je na začiatku slova samohlaska, a za ňou nestoja dve spoluhlásky,
+ tak sa berie ako samostatna slabika
+- ak sú za sebou spoluhlásky tak sa k nim pričlenuje samohlaska / dvojhlaska task končí slabika
+- ak je spoluhláska posledná v slove tak sa ráta do predošlej slabiky
+- dlhá samohláska ukončuje slabiku ak nie je za nou sama spoluhlaska
+
+Pre 5 slovne 
+- klasika so začiatkom samohláska na začiatku , to je vlastne ako pri tých 4 písmenových slovách
+- slabika neskončí pokial nieje posledne písmeno v slabike samohláska alebo ak su za sebou 2 alebo 3 spoluhlásky tak jedna spoluhláska + do prvej slabiky
+- ak je slabika posledná a pri začiatku sú dve spoluhlásky , jedna ide do prvej slabiky a druhá do druhej

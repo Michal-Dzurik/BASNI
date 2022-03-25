@@ -1,0 +1,21 @@
+<?php require_once "../php-assets/header.php";?>
+
+<div class="nav-after"></div>
+<main id="app">
+
+    <!-- number of roes = 16 -->
+    <article id="notebook">
+        <textarea spellcheck="false" name="" id="text" cols="30" rows="10"></textarea>
+        <div class="control-panel">
+
+        </div>
+    </article>
+
+</main>
+
+
+<script src="../libraries/jquery.js"></script>
+<script src="../js/letterFunctions.js"></script>
+<script src="../js/edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,1253 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0f4683;
+  z-index: 9999;
+}
+nav ul {
+  list-style: none;
+  min-width: 50%;
+}
+nav ul li a {
+  padding: 13px 10px;
+  font-size: 19px;
+  line-height: 100%;
+}
+
+.left-navigation {
+  float: left;
+}
+.left-navigation li {
+  float: left;
+}
+
+.right-navigation {
+  float: right;
+}
+.right-navigation li {
+  float: right;
+}
+
+#logo {
+  position: relative;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+#logo a {
+  font-weight: bold;
+  font-size: 21px;
+  padding: 12px 10px;
+}
+#logo a span {
+  font-family: Arial;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  font-weight: 300;
+}
+
+#logo:after {
+  content: "";
+  height: 50%;
+  width: 1px;
+  top: 25%;
+  position: absolute;
+  left: 95%;
+  background: #ffffffd5;
+}
+
+.add-button {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background: white;
+  margin: 5px 10px;
+  position: relative;
+  transition: transform 0.5s ease-out;
+}
+.add-button a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0f4683;
+  font-weight: 700;
+  font-size: 21px;
+  padding: 7px;
+}
+
+.add-button:hover {
+  transform: rotate(180deg);
+}
+
+#sign-in {
+  background: white;
+  margin: 7px 5px;
+  border-radius: 10px;
+}
+#sign-in a {
+  color: #0f4683;
+  padding: 6px 12px;
+  font-weight: 400;
+}
+
+.nav-after {
+  height: 44.8px;
+}
+
+.mobile-navigation {
+  display: none;
+  max-height: 0;
+  transition: max-height 0.4s;
+  overflow: hidden;
+}
+.mobile-navigation li {
+  float: none;
+  text-align: center;
+}
+.mobile-navigation li a {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  height: 34.8px;
+  width: 34.8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  padding: 5px;
+  border: 1.5px solid white;
+  background: #0f4683;
+  border-radius: 7px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.hamburger-active {
+  background: white;
+  color: #0f4683;
+}
+
+.navigation-rolled {
+  max-height: 1000px;
+}
+
+.follow {
+  height: 38px;
+}
+
+@media (max-width: 640px) {
+  .right-navigation {
+    display: none;
+  }
+
+  .left-navigation {
+    width: 100%;
+    text-align: center;
+  }
+  .left-navigation li {
+    display: none;
+  }
+  .left-navigation #logo {
+    display: inline-block;
+    float: none;
+  }
+  .left-navigation #logo:after {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-navigation {
+    display: block;
+  }
+}
+footer {
+  background: #2A2A2A;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-weight: 300;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+footer p {
+  position: relative;
+}
+footer p:before {
+  content: "© BÁSNI.";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+footer p:after {
+  content: "Autor: Michal Dzurík ";
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.footer-mobile {
+  display: none;
+}
+
+@media (max-width: 580px) {
+  .footer-mobile {
+    display: block;
+  }
+
+  .footer-desktop {
+    display: none;
+  }
+}
+.footer-after {
+  height: 40px;
+  width: 100%;
+}
+
+#message-box {
+  position: fixed;
+  top: 45px;
+  right: 0;
+  height: 100vh;
+  z-index: 999;
+  pointer-events: none;
+}
+#message-box .message {
+  pointer-events: none;
+  padding: 10px;
+  margin: 5px;
+  min-width: 320px;
+  position: relative;
+  background: white;
+  color: #0f4683;
+  animation-name: slideFromRight;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+#message-box .message div {
+  float: left;
+}
+#message-box .message img {
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+  transform: scale(0.7);
+}
+#message-box .error {
+  border-left: 4px solid #ff5252;
+}
+#message-box .error div h4 {
+  color: #ff5252;
+}
+#message-box .success {
+  border-left: 4px solid #4af84a;
+}
+#message-box .success div h4 {
+  color: #4af84a;
+}
+
+@keyframes slideFromRight {
+  0% {
+    right: -999px;
+  }
+  8% {
+    right: 3%;
+  }
+  10% {
+    right: 0;
+  }
+  91% {
+    right: 0;
+  }
+  92% {
+    right: 3%;
+  }
+  100% {
+    right: -999px;
+  }
+}
+@media (max-width: 580px) {
+  #message-box {
+    height: 20vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  #message-box .message {
+    max-width: 94%;
+    margin: 3%;
+  }
+}
+.banner {
+  height: 70vh;
+  background: url("../images/write-with-blue-pencil.png");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+.banner .filter {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.65;
+}
+.banner article {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  max-width: 600px;
+}
+.banner article h2 {
+  font-size: 70px;
+  font-family: "Dancing Script", cursive;
+  line-height: 70px;
+}
+.banner article p {
+  font-size: 20px;
+  margin-top: 5px;
+}
+.banner article .link-button {
+  padding: 7px 25px;
+  border: 3px solid #0f4683;
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 9px;
+  display: inline-block;
+}
+
+.functionality {
+  text-align: center;
+  padding: 20px 20px 70px 20px;
+}
+.functionality h3 {
+  font-size: 50px;
+  text-align: center;
+  padding: 30px;
+  font-weight: 300;
+}
+.functionality .functionality-row {
+  margin: 0 auto;
+  display: inline-block;
+}
+.functionality .functionality-row article {
+  width: 260px;
+  padding: 15px;
+  display: inline-block;
+}
+.functionality .functionality-row article img {
+  height: 104px;
+}
+.functionality .functionality-row article h4 {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #0f4683;
+}
+
+@media (max-width: 580px) {
+  .banner {
+    height: 50vh;
+  }
+  .banner article {
+    min-width: 70%;
+  }
+  .banner article h2 {
+    display: none;
+  }
+  .banner article p {
+    font-size: 46px;
+    font-family: "Dancing Script", cursive;
+  }
+}
+@media (max-height: 595px) {
+  .banner > article h2 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .banner > article p {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+}
+main.background {
+  background: url("../images/registration-picture.jpg");
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+}
+main form {
+  background: white;
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: left;
+}
+main form h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #0f4683;
+  display: inline-block;
+  width: 100%;
+  padding: 15px;
+  position: relative;
+}
+main form h2 span {
+  font-family: Arial;
+}
+main form h2:after {
+  content: "";
+  height: 2px;
+  width: 55%;
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  background: #0f4683;
+}
+main form .remember {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  margin: 15px 0 5px 0;
+  clear: both;
+  position: relative;
+  top: 5px;
+}
+main form .remember label {
+  position: relative;
+  width: 15px;
+  height: 15px;
+}
+main form .remember label input {
+  opacity: 0;
+  height: 100%;
+  width: 15px;
+}
+main form .remember label .check {
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1.5px solid #0f4683;
+  z-index: 2;
+}
+main form .remember label .check span {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 50%;
+}
+main form .remember label .label {
+  margin-left: 10px;
+}
+main form .remember label input:checked ~ .check {
+  background: #0f4683;
+}
+main form .block {
+  float: left;
+  width: 46%;
+  margin: 3% 2%;
+}
+main form .block input, main form .block input:focus {
+  outline: none;
+  border: 1.5px solid #0f4683;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+main form .block label {
+  display: inline-block;
+  width: 100%;
+  padding: 0 0 10px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #0f4683;
+}
+main form .login {
+  width: 32%;
+}
+main form .age {
+  width: 10%;
+}
+main form button {
+  padding: 8px 15px;
+  background: #0f4683;
+  color: white;
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+main form button span {
+  font-family: Arial;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media (max-width: 560px) {
+  main form {
+    width: 95%;
+  }
+  main form .block {
+    width: 100%;
+    float: none;
+    margin: 3% 0;
+  }
+  main form .block label {
+    text-align: left;
+  }
+}
+.profile-site-background {
+  background-color: #2A2A2A;
+  padding: 70px;
+}
+.profile-site-background .overlay {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: url("../images/registration-picture.jpg");
+  margin: -70px 0 0 -70px;
+  background-size: 100%;
+}
+.profile-site-background .overlay div {
+  background: url("../images/overlay.png");
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+section.main {
+  max-width: 900px;
+  margin: 50px auto 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 100;
+  background: white;
+}
+section.main section {
+  padding: 20px;
+  width: 100%;
+}
+section.main .profile a {
+  display: block;
+}
+section.main .profile a .profile-picture {
+  width: 106px;
+  float: left;
+}
+section.main .profile .about {
+  float: left;
+  max-width: 80%;
+  margin-left: 3%;
+}
+section.main .profile .about .name {
+  font-size: 28px;
+  text-transform: uppercase;
+  position: relative;
+  line-height: 40px;
+  top: -5px;
+  color: #0f4683;
+}
+section.main .profile .about .name:after {
+  content: ".";
+  font-family: Arial;
+}
+section.main .profile .about .description {
+  font-size: 18px;
+}
+
+.poem-gallery {
+  text-align: center;
+}
+.poem-gallery h2 {
+  font-size: 28px;
+  text-align: center;
+  padding: 20px;
+}
+.poem-gallery .poem {
+  width: 250px;
+  border: 1.5px solid #0f4683;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 180px;
+  position: relative;
+  margin: 10px;
+}
+.poem-gallery .poem .heading-container {
+  width: 100%;
+  background: #0f4683;
+  height: 60%;
+  position: relative;
+}
+.poem-gallery .poem .heading-container .heading {
+  font-size: 28px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.poem-gallery .poem a {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #0f4683;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.paginator {
+  text-align: center;
+  margin-top: 50px;
+}
+.paginator div {
+  display: inline-block;
+  overflow: hidden;
+}
+.paginator div a {
+  display: inline-block;
+  background: #0f4683;
+  color: white;
+  border-top: 1.5px solid #0f4683;
+  border-bottom: 1.5px solid #0f4683;
+  border-left: 0.75px solid #0f4683;
+  border-right: 0.75px solid #0f4683;
+  padding: 10px;
+  font-weight: 600;
+}
+.paginator .number a {
+  background: #0f4683;
+  color: white;
+}
+.paginator .prev {
+  border-radius: 10px 0 0 10px;
+}
+.paginator .next {
+  border-radius: 0 10px 10px 0;
+}
+
+.my-profile {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  padding: 10px;
+  z-index: 50;
+  background: #0f4683;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 38px;
+}
+.my-profile img {
+  width: 100%;
+}
+
+.profile-remove {
+  top: 38px;
+}
+
+.profile-not-public {
+  top: 38px;
+  writing-mode: tb-rl;
+}
+
+@media (max-width: 860px) {
+  .my-profile {
+    left: auto;
+    right: 0;
+  }
+
+  section.main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 100;
+    background: white;
+  }
+  section.main section {
+    padding: 20px;
+    width: 100%;
+  }
+  section.main .profile {
+    text-align: center;
+  }
+  section.main .profile a .profile-picture {
+    width: 106px;
+    float: none;
+    display: inline-block;
+    margin: 20px 0;
+  }
+  section.main .profile .about {
+    float: none;
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+@media (max-width: 750px) {
+  .profile-site-background {
+    background-color: #2A2A2A;
+    padding: 70px 10px;
+  }
+  .profile-site-background .overlay {
+    margin: -70px 0 0 -10px;
+  }
+}
+.section-heading {
+  font-size: 28px;
+  font-weight: 600;
+  color: #0f4683;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  padding: 15px;
+  padding-left: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+.section-heading span {
+  font-family: Arial;
+}
+
+.section-heading:after {
+  content: "";
+  height: 2px;
+  width: 150px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  background: #0f4683;
+}
+
+.main-profile-edit {
+  max-width: 900px;
+  margin: 20px auto;
+}
+.main-profile-edit form {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  padding: 40px;
+  width: 100%;
+}
+.main-profile-edit form textarea {
+  font-size: 20px;
+  padding: 15px;
+  width: 100%;
+  resize: none;
+}
+.main-profile-edit form h3 {
+  font-size: 20px;
+  padding: 10px;
+}
+.main-profile-edit form img {
+  height: 150px;
+  float: left;
+}
+.main-profile-edit form .file-container {
+  float: left;
+  margin: 0 10px;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  border: 2px dashed #0f4683;
+}
+.main-profile-edit form .file-container input[type=file] {
+  visibility: hidden;
+}
+.main-profile-edit form .file-container label.label {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+.main-profile-edit form .file-container label {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.main-profile-edit form button {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: 0;
+}
+
+@media (max-width: 750px) {
+  .main-profile-edit form button {
+    width: 120px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    float: none;
+    margin-top: 20px;
+    bottom: auto;
+  }
+  .main-profile-edit form img {
+    display: none;
+  }
+  .main-profile-edit form .file-container {
+    margin: 0 auto;
+    float: none;
+  }
+}
+.main-poem {
+  text-align: center;
+  font-size: 20px;
+}
+.main-poem p {
+  white-space: pre;
+}
+
+#comments {
+  padding: 0;
+}
+
+.comment {
+  border-radius: 10px;
+  background: #0f4683;
+  color: white;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+  margin: 15px 0;
+  display: block;
+}
+.comment h4 a {
+  font-weight: 800;
+  font-size: 18px;
+}
+.comment p {
+  font-size: 16px;
+}
+
+#commenting {
+  width: 100%;
+  padding: 0;
+  margin-top: 40px;
+}
+#commenting form {
+  position: static;
+  transform: none;
+  width: 100%;
+  padding: 0;
+}
+#commenting form textarea {
+  width: 100%;
+  font-size: 18px;
+  padding: 15px;
+  resize: vertical;
+  height: 150px;
+}
+
+header {
+  position: fixed;
+  top: 44.8px;
+  width: 100%;
+  background: white;
+  z-index: 999;
+}
+header a {
+  float: right;
+  color: #0f4683;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.background-edit .overlay {
+  background: url("../images/coffee-2306471_1920.jpg");
+}
+
+input:focus, input,
+button:focus, button {
+  outline: none;
+  border: none;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+#app #message-box {
+  top: 100px;
+}
+
+#notebook {
+  margin-top: 10vh;
+  background: white;
+  float: left;
+  position: relative;
+  z-index: 50;
+  min-height: 60vh;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 20px;
+  padding: 0;
+  height: 100%;
+}
+#notebook form {
+  width: 100%;
+  background: transparent;
+  padding: 30px 40px;
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  transform: none;
+}
+#notebook form textarea, #notebook form textarea:focus {
+  background: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+  min-height: 10%;
+  font-size: 18px;
+  line-height: 33px;
+  width: 100%;
+  overflow: hidden;
+}
+#notebook form input {
+  width: 100%;
+}
+
+.features {
+  margin-top: 10vh;
+  height: 100%;
+  min-height: 60vh;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 30px 40px;
+  background: white;
+  position: relative;
+  float: right;
+  margin-left: 20px;
+}
+.features div h3 {
+  color: #0f4683;
+  font-weight: 600;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+#rhyme-form {
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  transform: none;
+}
+#rhyme-form input, #rhyme-form button {
+  padding: 5px;
+  border: 1.5px solid #0f4683;
+  border-radius: 10px;
+  font-size: 16px;
+}
+#rhyme-form input {
+  padding: 8px 10px;
+}
+#rhyme-form input[type=text] {
+  width: 100%;
+  margin-top: 15px;
+}
+#rhyme-form label {
+  display: inline-block;
+}
+#rhyme-form input[type=number] {
+  width: 15%;
+  margin: 20px 10px;
+}
+#rhyme-form button {
+  transform: none;
+  left: 0;
+  padding: 0;
+  width: 40px;
+  margin: 0;
+  float: right;
+  transform: translateY(50%);
+}
+#rhyme-form button img {
+  width: 60%;
+  margin: 20%;
+  display: block;
+}
+
+#rhymes-result {
+  width: 100%;
+  overflow-y: auto;
+}
+#rhymes-result .rhymes-result-container {
+  padding: 10px;
+  background: #0f4683;
+  color: white;
+  display: inline-block;
+  border-radius: 8px;
+  margin: 3px 4px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.rhymes-animate {
+  animation-name: rhyme;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes rhyme {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#syllable-handler {
+  position: absolute;
+  top: 0;
+  height: inherit;
+  right: 0;
+  padding-top: inherit;
+  padding-bottom: 0;
+  margin-top: 60px;
+}
+#syllable-handler .control {
+  background: #0f4683;
+  color: white;
+  display: block;
+  line-height: 33px;
+  padding: 0 7px;
+  font-size: 18px;
+}
+
+#poem_heading, #poem_heading:focus {
+  outline: none;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+#poem_heading::placeholder {
+  color: #0f4683;
+}
+
+#poem_heading {
+  color: #0f4683;
+}
+
+@media (max-width: 1265px) {
+  #app {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  #app .features, #app #notebook {
+    margin: 40px auto 20px auto;
+    float: none;
+  }
+  #app .features {
+    max-width: 800px;
+  }
+  #app .features div form input[type=number] {
+    width: 50px;
+  }
+  #app #notebook {
+    max-width: 800px;
+  }
+}
+@media (max-width: 600px) {
+  #syllable-handler {
+    display: none;
+  }
+}
+.search-main {
+  background: white;
+}
+.search-main form {
+  width: 100%;
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  transform: none;
+}
+.search-main form input[type=text] {
+  background: #0f4683;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 7px;
+  color: white;
+  margin-bottom: 20px;
+}
+.search-main form input[type=text]::placeholder {
+  color: rgba(255, 255, 255, 0.84);
+}
+.search-main form select, .search-main form select:focus {
+  outline: none;
+  background: transparent;
+  border: 1.2px solid #0f4683;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-left: 10px;
+}
+.search-main form button {
+  margin: 0;
+  position: relative;
+  transform: none;
+  float: right;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  text-transform: uppercase;
+}
+
+.active-element {
+  background: white !important;
+  color: #0f4683 !important;
+}
+
+.news-main > .section-heading {
+  margin-left: 20px;
+}
+
+.post {
+  width: 100%;
+  border: 1.5px solid #0f4683;
+  margin: 15px 0;
+  color: black;
+  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.post .post-author {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 10px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+
+.post h3 {
+  font-size: 20px;
+  padding: 15px 20px;
+  display: inline-block;
+  width: 100%;
+  background: #0f4683;
+  position: relative;
+}
+
+.post h3 > a {
+  color: white;
+}
+
+.post a {
+  color: black;
+  font-weight: 800;
+}
+
+.post > p {
+  text-align: center;
+  white-space: pre;
+  padding: 15px 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
